@@ -1,0 +1,115 @@
+============================= test session starts =============================
+platform win32 -- Python 3.7.3, pytest-5.3.4, py-1.8.1, pluggy-0.13.1
+rootdir: D:\workplace\my-experiments\selene
+collected 2 items
+
+tests\test_google.py F.                                                  [100%]
+
+================================== FAILURES ===================================
+_________________________________ test_google _________________________________
+
+self = <selene.core.wait.Wait object at 0x0000023E661AC080>
+fn = <selene.core.conditions.ElementCondition object at 0x0000023E66E35828>
+
+    def for_(self, fn: Callable[[E], R]) -> R:
+        finish_time = time.time() + self._timeout
+    
+        while True:
+            try:
+>               return fn(self._entity)
+
+venv\lib\site-packages\selene\core\wait.py:82: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <selene.core.conditions.ElementCondition object at 0x0000023E66E35828>
+args = (<selene.core.entity.Element object at 0x0000023E66DF0E80>,), kwargs = {}
+
+    def __call__(self, *args, **kwargs):
+>       return self._fn(*args, **kwargs)
+
+venv\lib\site-packages\selene\core\condition.py:133: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+entity = <selene.core.entity.Element object at 0x0000023E66DF0E80>
+
+    def fn(entity: E) -> None:
+        query_to_str = str(query)
+        result = query.__name__ if query_to_str.startswith('<function') else query_to_str
+        actual = query(entity)
+        if not predicate(actual):
+>           raise AssertionError(f'actual {result}: {actual}')
+E           AssertionError: actual text: selenium.dev
+E           Selenium
+E           Перевести эту страницу
+E           The Selenium project is a member of Software Freedom Conservancy, which handles legal and financial needs for the project. Conservancy is currently raising ...
+E           About Selenium · Selenium IDE · Selenium Events · Downloads
+
+venv\lib\site-packages\selene\core\condition.py:106: AssertionError
+
+During handling of the above exception, another exception occurred:
+
+browser_config = None
+
+    def test_google(browser_config):
+        browser.open("/")
+        s(by.name("q")).should(be.blank) \
+            .type("selenium").press_enter()
+        ss(".srg .g").should(have.size_greater_than(0)) \
+>           .first.should(have.text("Selenium automates browsers"))
+
+tests\test_google.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\lib\site-packages\selene\core\entity.py:294: in should
+    super().should(condition)
+venv\lib\site-packages\selene\core\entity.py:121: in should
+    self.wait.for_(condition)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <selene.core.wait.Wait object at 0x0000023E661AC080>
+fn = <selene.core.conditions.ElementCondition object at 0x0000023E66E35828>
+
+        def for_(self, fn: Callable[[E], R]) -> R:
+            finish_time = time.time() + self._timeout
+    
+            while True:
+                try:
+                    return fn(self._entity)
+                except Exception as reason:
+                    if time.time() > finish_time:
+    
+                        reason_message = str(reason)
+    
+                        reason_string = '{name}: {message}'.format(name=reason.__class__.__name__, message=reason_message)
+                        # todo: think on how can we improve logging failures in selene, e.g. reverse msg and stacktrace
+                        # stacktrace = getattr(reason, 'stacktrace', None)
+                        timeout = self._timeout
+                        entity = self._entity
+    
+                        failure = TimeoutException(f'''
+    
+    Timed out after {timeout}s, while waiting for:
+    {entity}.{fn}
+    Reason: {reason_string}''')
+    
+>                       raise self._hook_failure(failure)
+E                       selene.core.exceptions.TimeoutException: Message: 
+E                       
+E                       Timed out after 2s, while waiting for:
+E                       browser.all(('css selector', '.srg .g'))[0].has text Selenium automates browsers
+E                       Reason: AssertionError: actual text: selenium.dev
+E                       Selenium
+E                       Перевести эту страницу
+E                       The Selenium project is a member of Software Freedom Conservancy, which handles legal and financial needs for the project. Conservancy is currently raising ...
+E                       About Selenium · Selenium IDE · Selenium Events · Downloads
+E                       Screenshot: file://selene_reports\1580324006179.png
+E                       PageSource: file://selene_reports\1580324006179.html
+
+venv\lib\site-packages\selene\core\wait.py:100: TimeoutException
+---------------------------- Captured stdout call -----------------------------
+
+Looking for [chromedriver 79.0.3945.36 win32] driver in cache 
+File found in cache by path [C:\Users\andrei\.wdm\drivers\chromedriver\79.0.3945.36\win32\chromedriver.exe]
+-------------------------- Captured stdout teardown ---------------------------
+
+exit from browser
+======================== 1 failed, 1 passed in 32.01s =========================
