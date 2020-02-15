@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "selene-experiments"
+version = "0.1.0"
+description = ""
+authors = ["andreirogal:"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+selene = {version = "^2.0.0-alpha.21", allow-prereleases = true}
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+
+[build-system]
+requires = ["poetry>=1.0.0"]
+build-backend = "poetry.masonry.api"
