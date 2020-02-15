@@ -230,3 +230,46 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/python,pycharm,windows
+
+# Start https://github.com/python-poetry/poetry/blob/master/.gitignore
+*.pyc
+
+# Packages
+*.egg
+!/tests/**/*.egg
+/*.egg-info
+/tests/fixtures/**/*.egg-info
+/dist/*
+build
+_build
+.cache
+*.so
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+.pytest_cache
+
+.DS_Store
+.idea/*
+.python-version
+.vscode/*
+
+/test.py
+/test_*.*
+
+/setup.cfg
+MANIFEST.in
+/setup.py
+/docs/site/*
+/tests/fixtures/simple_project/setup.py
+/tests/fixtures/project_with_extras/setup.py
+.mypy_cache
+
+.venv
+/releases/*
+pip-wheel-metadata
+/poetry.toml
