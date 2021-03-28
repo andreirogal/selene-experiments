@@ -1,0 +1,37 @@
+============================= test session starts =============================
+platform win32 -- Python 3.7.3, pytest-3.10.1, py-1.8.1, pluggy-0.13.1 -- c:\users\andre\appdata\local\pypoetry\cache\virtualenvs\selene-experiments-jblbqckg-py3.7\scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\andre\PycharmProjects\selene-experiments, inifile: pytest.ini
+collecting ... collected 2 items
+
+tests/test_selene.py::test_google_one 
+------------------------------- live log setup --------------------------------
+2021-03-28 15:43:47 [INFO    ] start config browser : 0.0 seconds (conftest.py:  22)
+2021-03-28 15:43:47 [INFO    ] browser config duration: 0.0010006427764892578 seconds (conftest.py:  27)
+-------------------------------- live log call --------------------------------
+2021-03-28 15:43:47 [INFO    ] before start browser: 0.0 seconds (test_selene.py:  13)
+2021-03-28 15:43:50 [INFO    ] browser start duration: 3.642312526702881 seconds (test_selene.py:  15)
+FAILED                                                                   [ 50%]
+------------------------------ live log teardown ------------------------------
+2021-03-28 15:43:57 [INFO    ] test duration : 10.36901569366455 seconds (conftest.py:  30)
+
+tests/test_selene.py::test_google_two 
+------------------------------- live log setup --------------------------------
+2021-03-28 15:43:57 [INFO    ] start config browser : 0.0 seconds (conftest.py:  22)
+2021-03-28 15:43:57 [INFO    ] browser config duration: 0.0009975433349609375 seconds (conftest.py:  27)
+-------------------------------- live log call --------------------------------
+2021-03-28 15:43:57 [INFO    ] before start browser: 0.0 seconds (test_selene.py:  24)
+2021-03-28 15:43:59 [WARNING ] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FA2170>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4cc042bbbd815aeac156822e94427a11/title (connectionpool.py: 745)
+2021-03-28 15:44:01 [WARNING ] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0445C3F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4cc042bbbd815aeac156822e94427a11/title (connectionpool.py: 745)
+2021-03-28 15:44:03 [WARNING ] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0445C890>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4cc042bbbd815aeac156822e94427a11/title (connectionpool.py: 745)
+2021-03-28 15:44:07 [WARNING ] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0445C4D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4cc042bbbd815aeac156822e94427a11 (connectionpool.py: 745)
+2021-03-28 15:44:09 [WARNING ] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0445CBB0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4cc042bbbd815aeac156822e94427a11 (connectionpool.py: 745)
+2021-03-28 15:44:11 [WARNING ] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0445CCF0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4cc042bbbd815aeac156822e94427a11 (connectionpool.py: 745)
+2021-03-28 15:44:17 [INFO    ] browser start duration: 19.854556560516357 seconds (test_selene.py:  26)
+FAILED                                                                   [100%]
+------------------------------ live log teardown ------------------------------
+2021-03-28 15:44:23 [INFO    ] test duration : 26.227971076965332 seconds (conftest.py:  30)
+2021-03-28 15:44:23 [INFO    ] session duration : 36.597994804382324 seconds (conftest.py:  16)
+
+
+========================== 2 failed in 36.62 seconds ==========================

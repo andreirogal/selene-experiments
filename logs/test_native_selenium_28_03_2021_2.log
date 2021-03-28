@@ -1,0 +1,27 @@
+============================= test session starts =============================
+platform win32 -- Python 3.7.3, pytest-3.10.1, py-1.8.1, pluggy-0.13.1 -- c:\users\andre\appdata\local\pypoetry\cache\virtualenvs\selene-experiments-jblbqckg-py3.7\scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\andre\PycharmProjects\selene-experiments, inifile: pytest.ini
+collecting ... collected 2 items
+
+tests/test_native_selenium.py::test_google_one 
+------------------------------- live log setup --------------------------------
+2021-03-28 15:46:14 [INFO    ] start 1616935574.106783 (conftest.py:  36)
+2021-03-28 15:46:14 [INFO    ] before start browser: 0.0020012855529785156 seconds (conftest.py:  37)
+2021-03-28 15:46:15 [INFO    ] browser start duration: 1.116882085800171 seconds (conftest.py:  39)
+FAILED                                                                   [ 50%]
+------------------------------ live log teardown ------------------------------
+2021-03-28 15:46:27 [INFO    ] test duration : 13.541882753372192 seconds (conftest.py:  43)
+
+tests/test_native_selenium.py::test_google_two 
+------------------------------- live log setup --------------------------------
+2021-03-28 15:46:27 [INFO    ] start 1616935587.6496668 (conftest.py:  36)
+2021-03-28 15:46:27 [INFO    ] before start browser: 0.0009996891021728516 seconds (conftest.py:  37)
+2021-03-28 15:46:28 [INFO    ] browser start duration: 1.0560448169708252 seconds (conftest.py:  39)
+FAILED                                                                   [100%]
+------------------------------ live log teardown ------------------------------
+2021-03-28 15:46:40 [INFO    ] test duration : 13.129976272583008 seconds (conftest.py:  43)
+2021-03-28 15:46:40 [INFO    ] session duration : 26.6738600730896 seconds (conftest.py:  16)
+
+
+========================== 2 failed in 26.69 seconds ==========================
