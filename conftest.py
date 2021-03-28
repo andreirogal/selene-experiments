@@ -6,6 +6,7 @@ import time
 import pytest
 from selene.support.shared import browser
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -37,7 +38,7 @@ def native_selenium():
     start = time.time()
     logger.info(f'start {start}')
     logger.info(f'before start browser: {time.time() - start} seconds')
-    browser = webdriver.Chrome()
+    browser = webdriver.Chrome(ChromeDriverManager().install())
     logger.info(f'browser start duration: {time.time() - start} seconds')
     browser.implicitly_wait(5)
     yield browser
